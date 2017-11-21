@@ -14,6 +14,11 @@ $( () => {
 
             $.post('/login', data, (response) => {
                 console.log(response);
+                if(response && response.status) {
+                    window.location = '/dashboard.html?id=' + response.studentId + "&name= " + response.studentName;
+                } else {
+                    $('#messages').text('Invalid username and password')
+                }
             });
 
             
